@@ -1,0 +1,7 @@
+gunicorn==20.*
+gevent==22.*
+flask==2.*
+Flask-SQLAlchemy==3.*
+Flask-Migrate==4.*
+mysql-connector==2.*
+environs==9.*
