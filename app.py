@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 
-from flask import Flask, g, request
+from flask import Flask, g, request, url_for, Response
 import settings
 from core import log, env
 import models
@@ -18,6 +18,8 @@ def create_app():
     log.init(app)
     models.init(app)
     views.init(app)
+    app.add_url_rule('/favicon.ico', '', redirect_to='/static/favicon.ico')
+    
 
     @app.before_request
     def beforeRequest():
@@ -28,8 +30,9 @@ def create_app():
         app.logger.info(dict(request.form))
 
     @app.after_request
-    def afterRequest(resp):
-        app.logger.info(resp.data.decode("unicode_escape"))
+    def afterRequest(resp: Response):
+        if not resp.is_streamed:
+            app.logger.info(resp.data.decode("unicode_escape"))
         return resp
 
     @app.errorhandler(Exception)
