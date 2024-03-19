@@ -4,11 +4,9 @@ from gevent import monkey
 monkey.patch_all()
 
 import os
-from environs import Env
+from core import env
 
-env = Env()
-env.read_env()
-port = env.str('PORT') if env.str('PORT') else 9000
+port = env.get('PORT', 9000)
 
 # 工作模式，默认sync模式
 # worker_class = 'gunicorn.workers.ggevent.GeventWorker'
@@ -26,8 +24,8 @@ daemon = 'false'
 # 最大并发量
 worker_connections = port
 # 日志
-# accesslog = './logs/gunicorn_access.log'
-# errorlog = './logs/gunicorn_error.log'
+accesslog = './logs/gunicorn_access.log'
+errorlog = './logs/gunicorn_error.log'
 loglevel = 'warning'
 # 超时时间
 timeout = 30
