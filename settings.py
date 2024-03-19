@@ -3,16 +3,13 @@
 
 
 from environs import Env
-
-
-env = Env()
-env.read_env()
+from core import env
 
 
 class BaseConfig(object):
     TESTING = True
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = env.str('DATABASE_URI')
+    SQLALCHEMY_DATABASE_URI = env.get('DATABASE_URI')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
