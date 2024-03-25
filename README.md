@@ -48,6 +48,7 @@ flask db upgrade
 ## 目录说明
 
 ```
+ - core 工具类库
  - logs 日志目录
  - migrations 数据库迁移目录
  - models 模型目录

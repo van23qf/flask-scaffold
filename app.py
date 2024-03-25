@@ -47,4 +47,4 @@ db = models.db
 migrate = models.migrate
 
 if __name__ == '__main__':
-    app.run(port=env.get('PORT', 9000), host='0.0.0.0')
+    app.run(port=env.get('PORT', env.get('PORT')), host='0.0.0.0')
