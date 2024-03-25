@@ -59,6 +59,7 @@ flask db upgrade
  - migrations 数据库迁移目录
  - models 模型目录
  - static 前端资源文件
+ - task celery任务
  - templates 前端模版
  - views 蓝图
 ```
