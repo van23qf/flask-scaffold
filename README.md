@@ -36,6 +36,12 @@ python app.py
 gunicorn app:app -c gunicorn.py --reload
 ```
 
+ - Celery异步任务，开启5个子进程，默认值是电脑系统可用的cpu数量
+
+```
+celery -A app.celery_app worker --concurrency=5 --loglevel INFO
+```
+
  - 数据库迁移
 
 ```

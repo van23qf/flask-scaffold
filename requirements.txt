@@ -5,3 +5,5 @@ Flask-SQLAlchemy==3.*
 Flask-Migrate==4.*
 mysql-connector==2.*
 environs==9.*
+redis==5.*
+celery==5.*

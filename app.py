@@ -7,6 +7,7 @@ import settings
 from core import log, env
 import models
 import views
+import task
 import os, traceback
 
 
@@ -45,6 +46,7 @@ def create_app():
 app = create_app()
 db = models.db
 migrate = models.migrate
+celery_app = task.init_celery(app)
 
 if __name__ == '__main__':
     app.run(port=env.get('PORT', env.get('PORT')), host='0.0.0.0')
